@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="./styles_clients.css">
+    <link rel="stylesheet" href=
+"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity=
+"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <script src="./script_clients.js" defer></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAr-jq3RKk1DtMrgqR6KyEVFsg_IG3s5A" defer></script> -->
+    <title>Clients</title>
+</head>
+<body>
+<div class="settings_menu">
+    <div class="settings_title">
+        <button class="back">back</button>
+        <b class="topic">CLIENTS (0)</b>
+    </div>
+    <div class="main_container">
+        
+    </div>
+</div>
+<div class="popup_container">
+    <button class="preview_button"></button>
+    <img alt="preview" class="preview_img" src="">
+</div>
+<template id="client-item">
+    <div class="client_block">
+        <div id="block_part_up">
+            <div id="tittle" class="client-status">PENDING</div>
+            <div id="tittle" class="client-tg">
+                <button class="client-button_tg">🔗 Telegram</button>
+            </div>
+        </div>
+        <div id="block_part_down">
+            <button class="client-selfie"></button>
+            <button class="client-docs"></button>
+            
+            <div id="client-buttons">
+                <button class="client-button_accept" id="client_action-button"></button>
+                <button class="client-button_decline" id="client_action-button"></button>
+                <button class="client-button_block" id="client_action-button"></button>
+            </div>
+        </div>
+    </div>
+</template>
+</body>
+</html>

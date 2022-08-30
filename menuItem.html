@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="./styles_menu_item.css">
+    <script src="./script_menu_item.js" type="module"></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAr-jq3RKk1DtMrgqR6KyEVFsg_IG3s5A" defer></script> -->
+    <title>Item Editor</title>
+</head>
+<body>
+<div class="settings_menu">
+    <div class="settings_title">
+        <button class="back">back</button>
+        ITEM EDITOR
+    </div>
+    <div class="main_container">
+        <div class="menu_block">
+            <div id="block_part_up">
+                <img alt="items" class="menu-item__icon" src="https://img.icons8.com/ios/500/open-parcel.png">
+                <!-- <div id="tittle" class="menu_tittle">Name</div> -->
+    
+                <!-- <div class="menu_navigation">
+                    <button class="menu-button_up" id="menu_navigation-button">↑</button>
+                    <button class="menu-button_down" id="menu_navigation-button">↓</button>
+                </div> -->
+            </div>
+            <div id="block_part_middle">
+                <input type="file" id="upload_file">
+                <!-- <button class="item-button_edit" id="item_action-button">Change Picture ✏️</button> -->
+            </div>
+            <div id="block_part_down">
+
+                <label for="fname">💭 Name:</label>
+                <input type="text" id="fname" placeholder="Enter Product Name">
+                
+                <label for="fprice">💰 Price:</label>
+                <input type="number" id="fprice" placeholder="Enter Product Price">
+    
+                <button class="submit">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

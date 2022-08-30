@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="./styles_menu.css">
+    <script src="./script_menu.js" defer></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAr-jq3RKk1DtMrgqR6KyEVFsg_IG3s5A" defer></script> -->
+    <title>NugPlug LA</title>
+</head>
+<body>
+<div class="settings_menu">
+    <div class="settings_title">
+        <button class="back">back</button>
+        MENU
+    </div>
+    <div class="add_item-up">
+        <div class="add_item-block-up">
+            <button id="menu_additem-button" class="additem_up">➕ Add new item (above)</button>
+        </div>
+    </div>
+    <div class="main_container">
+        
+    </div>
+    <div class="add_item-down">
+        <div class="add_item-block-down">
+            <button id="menu_additem-button" class="additem_down">➕ Add new item (end)</button>
+        </div>
+    </div>
+</div>
+<template id="menu-item">
+    <div class="menu_block">
+        <div id="block_part_up">
+            <img alt="items" class="menu-item__icon" src="https://img.icons8.com/ios/500/open-parcel.png">
+            <div id="tittle" class="menu_tittle">Name</div>
+
+            <div class="menu_navigation">
+                <button class="menu-button_up" id="menu_navigation-button">↑</button>
+                <button class="menu-button_down" id="menu_navigation-button">↓</button>
+            </div>
+        </div>
+        <div id="block_part_down">
+            <button class="menu-button_delete" id="menu_action-button">Delete 🗑</button>
+            <button class="menu-button_edit" id="menu_action-button">Edit ✏️</button>
+        </div>
+    </div>
+</template>
+</body>
+</html>

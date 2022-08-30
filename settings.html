@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="./styles_settings.css">
+    <script src="./script_settings.js" defer></script>
+    <title>NugPlug LA</title>
+</head>
+<body>
+<div class="settings_menu">
+    <div class="settings_title">
+        <button class="back">back</button>
+        SETTINGS
+    </div>
+    <div class="main_container">
+        <!-- <button class="index_menu_b" id="index_b">MENU</button> -->
+        <label>👋 Hello Message</label>
+        <form>
+            <textarea id="fhellomsg" placeholder="Hello message that will be sent when bot starts"></textarea>
+        </form>
+
+        <label>🕔 Business Hours</label>
+        <form>
+            <textarea id="fhours" placeholder="For business hours section"></textarea>
+        </form>
+
+        <label for="fmoney">💰 Delivery Fee</label>
+        <input type="number" id="fmoney">
+        
+        <label for="fminimum">🛒 Minimum Price</label>
+        <input type="number" id="fminimum">
+
+        <button class="submit">Submit</button>
+    </div>
+    
+</div>
+</body>
+</html>

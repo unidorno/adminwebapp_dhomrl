@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="./styles_orders.css">
+    <script src="./script_orders.js" defer></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAr-jq3RKk1DtMrgqR6KyEVFsg_IG3s5A" defer></script> -->
+    <title>NugPlug LA</title>
+</head>
+<body>
+<div class="settings_menu">
+    <div class="settings_title">
+        <button class="back">back</button>
+        ORDERS
+    </div>
+    <div class="main_container">
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAr-jq3RKk1DtMrgqR6KyEVFsg_IG3s5A&callback=InitMap"
+    type="text/javascript" defer></script>
+</div>
+<template id="order-item">
+    <div class="order_block">
+        <div id="block_part_up">
+            <div id="tittle" class="order_tittle"></div>
+            <div id="order-items" class="order_items"></div>
+            <div class="order_link"><a href="http://google.com" id="order-tg"></a></div>
+            <div id="order-address" class="order_address"></div>
+        </div>
+        <div id="block_part_down">
+            <div id="map" class="map"></div>
+        </div>
+    </div>
+</template>
+</body>
+</html>
