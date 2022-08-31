@@ -1,169 +1,357 @@
-/* const form_hellomsg = document.querySelector("#fhellomsg");
-const form_hours = document.querySelector("#fhours");
-const form_fee = document.querySelector("#fmoney");
-const form_min = document.querySelector("#fminimum"); */
-const orderTemplate = document.querySelector('#order-item');
-const orderSections = document.querySelector('.main_container');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
 
-const button_back = document.querySelector(".back");
-let tg = window.Telegram.WebApp;
+:root {
+    --body-background-color: white;
+    --title-color: black;
+    --sub-text-color: black;
+}
 
-let hello_timer = 0;
-let is_timer_on = false;
-let old_message_id = 0;
+body {
+    background-color: white;
+}
 
-Telegram.WebApp.ready();
-configureThemeColor(Telegram.WebApp.colorScheme);
-tg.expand();
+button {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
 
-fetch('https://upperrestaurant-default-rtdb.europe-west1.firebasedatabase.app/durgerking/orders.json')
-.then((response) => {
-    return response.json();
-})
-.then((data) => {
-    /* form_hellomsg.value = data.hello;
-    form_hours.value = data.business_hours;
-    form_min.value = data.min_price;
-    form_fee.value = data.delivery_fee;
-    hello_timer = data.hello_timer;
-    is_timer_on = data.is_timer_on;
-    old_message_id = data.old_message_id; */
+.main_container {
+    margin-top: 20px;
+    display: flex;
+    justify-items: stretch;
+    justify-content: center;
+    gap: 10% 5%;
+    font-size: 30px;
+    align-items: center;
+    background-color: white;
+    align-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+#index_b {
+    height: 100px;
+    width: 100%;
+    font-size: 12pt;
+}
+
+.settings_menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    margin-bottom: 30px;
+}
+
+.settings_title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 18pt;
+    margin-top: 35px;
+    margin-bottom: 30px;
+    color: black;
+}
+
+input[type=text], select {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: black;
+}
+
+input[type=number], select {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: black;
+}
+
+.submit {
+    width: 80%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    /* margin: 8px 0; */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+.submit:hover {
+    width: 80%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    /* margin: 8px 0; */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+label {
+    font-size: 15pt;
+    margin-top: 15px;
+    color: black;
+}
+
+.back {
+    background-image: url(./src/right-arrow.png);
+    background-size: 70%;
+    background-repeat: no-repeat;
+    color: transparent;
+    border: transparent;
+    background-color: transparent;
+    padding-top: 5px;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    /* padding: 12px 20px; */
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 16px;
+    resize: none;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+}
+form {
+    width: 80%;
+}
+
+.order_block {
+    width: 80%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 16px;
+    resize: none;
+    /* padding: 12px 20px; */
+    /* margin: 8px 0; */
+    margin-bottom: 30px;
+    display: inline-block;
     
-    for (let i = 0; i < data.length; i++){
-        if (data[i].status === 'waiting'){
-            data[i].status = 'viewed';
-            fetch('https://upperrestaurant-default-rtdb.europe-west1.firebasedatabase.app/durgerking/orders/' + i + '.json', {
-                method: 'PUT',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data[i])
-            })
-            .then(res => {console.log('finished')})
-            .catch(err => {console.log('here: ' + err)})
-        }
+    justify-items: stretch;
+    justify-content: center;
+    gap: 10% 5%;
+    flex-direction: column;
+}
+
+#map {
+    height: 300px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+#block_part_up {
+    width: 100%;
+    /* height: 200px; */
+    box-sizing: border-box;
+    /* border: 1px solid #ccc; */
+    border-radius: 5px;
+    background-color: white;
+    font-size: 16px;
+    resize: none;
+    padding: 12px 20px;
+    /* margin: 8px 0; */
+    display: inline-block;
+
+    justify-items: stretch;
+    justify-content: center;
+    gap: 10% 5%;
+    flex-direction: column;
+}
+
+#block_part_down {
+    width: 100%;
+    /* height: 200px; */
+    box-sizing: border-box;
+    /* border: 1px solid #ccc; */
+    border-radius: 5px;
+    background-color: white;
+    font-size: 16px;
+    resize: none;
+    /* padding: 12px 20px; */
+    /* margin: 8px 0; */
+    display: inline-block;
+
+    justify-items: stretch;
+    justify-content: center;
+    gap: 10% 5%;
+    flex-direction: column;
+}
+
+#tittle {
+    text-align: left;
+    font-weight: 700;
+    font-size: 5vw;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    color: black;
+}
+
+.order_items {
+    font-size: 4vw;
+    color: black;
+}
+
+#order-tg {
+    text-align: left;
+    font-weight: 1400;
+    font-size: 14pt;
+    color: rgb(106, 106, 255);
+    text-decoration: none;
+}
+
+.order_link {
+    margin-top: 15px;
+}
+
+#order-tg {
+    border: none;
+    background-color: transparent;
+}
+
+.order_address {
+    margin-top: 15px;
+}
+
+.order-second {
+    width: 100%;
+    /* height: 200px; */
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 16px;
+    resize: none;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    
+    justify-items: stretch;
+    justify-content: center;
+    gap: 10% 5%;
+    flex-direction: column;
+}
+
+.order-item {
+    position: relative;
+}
+
+.order-item__icon {
+    width: 80px;
+    height: 80px;
+    display: block;
+    margin: 0 auto;
+}
+
+.order-item__name {
+    margin: 5px 0;
+    /* display: flex; */
+    column-gap: 10px;
+    font-weight: 100;
+    color: black;
+    text-align: center;
+}
+
+.order-item__price {
+    margin: 5px 0;
+    /* display: flex; */
+    column-gap: 10px;
+    font-weight: 700;
+    color: black;
+    text-align: center;
+    /* text-decoration: underline; */
+}
+
+.order-item__buttons {
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+.order-item__button {
+    display: block;
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 700;
+    /* width: 50px; */
+}
+
+.order-item__button[data-remove] {
+    position: absolute;
+    width: 0;
+    background-color: #477f50;
+}
+
+.order-item__button[data-add] {
+    position: absolute;
+    left: 0;
+    right: 0;
+    transition: left .3s;
+    background-color: #477f50;
+}
+
+.order-item__count {
+    color: white;
+    font-weight: 700;
+    position: absolute;
+    top: -5px;
+    right: -20px;
+    background-color: #477f50;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    opacity: 0;
+}
+
+@keyframes fluctuate {
+    0% {
+        transform: translateX(0);
     }
-    
-})
 
-button_back.onclick = function () {
-    location.href = "index.html";
-};
-function UpdateValues(){
-    fetch('https://upperrestaurant-default-rtdb.europe-west1.firebasedatabase.app/durgerking/presets.json', {
-        method: 'PUT',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            hello_timer: hello_timer,
-            is_timer_on: is_timer_on,
-            old_message_id: old_message_id,
-            hello: form_hellomsg.value,
-            business_hours: form_hours.value,
-            min_price: parseInt(form_min.value),
-            delivery_fee: parseInt(form_fee.value)
-        })
-    })
-    .then(res => {
-        button_submit.firstChild.data = "✅ Submitted!"
-    })
-    .catch(err => {console.log(err);});
-}
-
-function configureThemeColor(color) {
-    if (color === 'dark') {
-        document.documentElement.style.setProperty('--body-background-color', '#1f1e1f');
-        document.documentElement.style.setProperty('--title-color', 'white');
-        document.documentElement.style.setProperty('--sub-text-color', 'white');
+    25% {
+        transform: translateX(4px);
     }
-}
-async function InitMap(ordermap, crd) {
 
-    console.log("Map init");
-    //Custom Start Location
-    /* const crd = {
-        latitude: 34.201302,
-        longitude: -118.474937
-    } */
-    
-    let map = new google.maps.Map(ordermap, {
-      zoom: 14,
-      center: { lat: crd.latitude, lng: crd.longitude },
-      gestureHandling: "greedy",
-      zoomControl: false,
-      mapTypeControl: false, 
-      mapTypeControlOptions: {
-        position: google.maps.ControlPosition.BOTTOM_LEFT 
-      }, 
-      scaleControl: false,
-      streetViewControl: false,
-      rotateControl: false,
-      fullscreenControl: false
-    });
+    50% {
+        transform: translateX(0);
+    }
 
-    const icon_big = {
-        url: "./src/marker.png",
-        scaledSize: new google.maps.Size(50, 65), // scaled size
-    };
-    console.log(crd)
-    marker = new google.maps.Marker({
-      position: { lat: crd.latitude, lng: crd.longitude },
-      map: map,
-      draggable: false,
-      icon: icon_big,
-    });
-    
-}
-async function loadItems() {
-    const response = await fetch('https://upperrestaurant-default-rtdb.europe-west1.firebasedatabase.app/durgerking/orders.json');
-    const items = await response.json();
+    75% {
+        transform: translateX(-4px);
+    }
 
-    items.forEach((order, index) => {
-        if (index !== 0 && index < 30){
-            let orderTemp = orderTemplate.content.cloneNode(true);
-            const orderTotal = orderTemp.querySelector('.order_tittle');
-            const orderItems = orderTemp.querySelector('.order_items');
-            const orderAddress = orderTemp.querySelector('.order_address');
-            const orderLink = orderTemp.querySelector('.order_link');
-            const orderMap = orderTemp.querySelector('.map');
-            orderItems.textContent = '';
-            
-            let {totalPrice, crd, address, tg_id, items, status} = order;
-            orderTotal.textContent = 'TOTAL: $' + totalPrice;
-            orderAddress.textContent = '📍 ' + address;
-            orderLink.innerHTML = '<a href="tg://user?id='+tg_id+'" id="order-tg">🔗 TG: '+tg_id+'</a>'
-            console.log(items);
-    
-            let order_text = ''
-            for (let i = 0; i < items.length; i++) {
-                order_text += ((i+1) + '. ' + items[i].name + ' x ' + items[i].amount + ' = ' + items[i].price + '<br>')
-            }
-            console.log(order_text)
-            orderItems.innerHTML = order_text
-    
-            crd = {
-                latitude: parseFloat(crd.split(',')[0]),
-                longitude: parseFloat(crd.split(',')[1])
-            }
-            console.log(crd)
-            InitMap(orderMap, crd)
-    
-            orderTemp.querySelector('.order_block').dataset.id = index;
-            if (status === 'waiting') {
-                orderTotal.innerHTML = 'NEW!<br>' + orderTotal.innerHTML;
-                orderTotal.style.color = 'rgb(23, 171, 35)';
-            }
-            orderSections.appendChild(orderTemp);
-    
-            orderTemp = orderSections.querySelector(`.order-item[data-id="${index}"]`);
-        }
-    })
-    
-}
-loadItems()
-function showPosition(position) {
-    console.log(position);
+    100% {
+        transform: translateX(0);
+    }
 }
