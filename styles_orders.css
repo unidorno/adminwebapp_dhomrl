@@ -228,6 +228,11 @@ form {
     margin-top: 15px;
 }
 
+#order-tg {
+    border: none;
+    background-color: transparent;
+}
+
 .order_address {
     margin-top: 15px;
 }
