@@ -97,7 +97,7 @@ async function loadItems() {
         
             button_tg.textContent = '🔗 TG: ' + tg_id;
             button_tg.onclick = function () {
-                window.open("tg://user?id=" + tg_id);
+                window.Telegram.WebApp.openTelegramLink("tg://user?id=" + tg_id)
             };
 
             button_accept.onclick = function () {
