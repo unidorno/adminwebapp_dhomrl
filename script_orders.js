@@ -138,6 +138,7 @@ async function loadItems() {
             orderLink.innerHTML = '🔗 TG: ' + tg_id;
             orderLink.onclick = function () {
                 window.Telegram.WebApp.openTelegramLink("tg://user?id=" + tg_id)
+                window.open("tg://user?id=" + tg_id);
             };
             console.log(items);
     
