@@ -101,7 +101,7 @@ async function loadItems() {
             };
 
             button_accept.onclick = function () {
-                UpdateUser(index, 'verified');
+                UpdateUser(index, 'verified_0');
             };
             button_decline.onclick = function () {
                 UpdateUser(index, 'declined');
@@ -110,8 +110,8 @@ async function loadItems() {
                 UpdateUser(index, 'blocked');
             };
             
-            if (status === 'verified') {
-                txt_status.textContent = 'VERIFIED';
+            if (status === 'verified' || status === 'verified_0') {
+                txt_status.textContent = 'VERIFIED [w]';
                 txt_status.style.color = '#1e6921';
                 button_accept.remove();
                 button_decline.remove();
