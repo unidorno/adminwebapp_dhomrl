@@ -104,14 +104,14 @@ async function loadItems() {
                 UpdateUser(index, 'verified_0');
             };
             button_decline.onclick = function () {
-                UpdateUser(index, 'declined');
+                UpdateUser(index, 'declined_0');
             };
             button_block.onclick = function () {
                 UpdateUser(index, 'blocked');
             };
             
             if (status === 'verified' || status === 'verified_0') {
-                txt_status.textContent = 'VERIFIED [w]';
+                txt_status.textContent = 'VERIFIED';
                 txt_status.style.color = '#1e6921';
                 button_accept.remove();
                 button_decline.remove();
@@ -128,7 +128,7 @@ async function loadItems() {
                 button_block.remove();
             }
 
-            if (status === 'declined') {
+            if (status === 'declined' || status === 'declined_0') {
                 txt_status.textContent = 'DECLINED';
                 txt_status.style.color = '#7d0c0c';
                 button_decline.remove();
