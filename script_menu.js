@@ -1,7 +1,3 @@
-/* const form_hellomsg = document.querySelector("#fhellomsg");
-const form_hours = document.querySelector("#fhours");
-const form_fee = document.querySelector("#fmoney");
-const form_min = document.querySelector("#fminimum"); */
 const blockTemplate = document.querySelector('#menu-item');
 const itemsSections = document.querySelector('.main_container');
 const addnew_up = document.querySelector('.additem_up');
@@ -161,17 +157,18 @@ function MoveItem(index, direction) {
             }
             console.log(new_data);
         }
-        
-        fetch('https://upperrestaurant-default-rtdb.europe-west1.firebasedatabase.app/durgerking/items.json', {
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(new_data)
-        })
-        .then(res => {console.log('finished'); location.href = "menu.html";})
-        .catch(err => {console.log('here: ' + err)})
+        if (new_data.length > 0){
+            fetch('https://upperrestaurant-default-rtdb.europe-west1.firebasedatabase.app/durgerking/items.json', {
+                method: 'PUT',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(new_data)
+            })
+            .then(res => {console.log('finished'); location.href = "menu.html";})
+            .catch(err => {console.log('here: ' + err)})
+        }
         
     })
 }
